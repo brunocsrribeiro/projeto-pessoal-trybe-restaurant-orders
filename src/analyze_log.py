@@ -1,7 +1,7 @@
 import csv
 from src.publicity_campaign import (
     most_requested_dish, get_burger_orders,
-    dish_not_ordered, get_days)
+    dish_not_ordered, get_days_never_visited)
 
 
 def analyze_log(path_to_file):
@@ -17,7 +17,7 @@ def analyze_log(path_to_file):
                 most_requested_dish(order_history, "maria"),
                 get_burger_orders(order_history, "arnaldo", "hamburguer"),
                 dish_not_ordered(order_history, "joao"),
-                get_days(order_history, "joao")
+                get_days_never_visited(order_history, "joao")
             ]
 
         with open("data/mkt_campaign.txt", mode="w", encoding="utf-8") as file:

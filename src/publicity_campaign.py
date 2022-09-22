@@ -33,7 +33,7 @@ def dish_not_ordered(orders, client):
     return get_dishes.difference(get_clients)
 
 
-def get_days(orders, client):
+def get_days_never_visited(orders, client):
     get_days = set()
     get_clients = set()
 
