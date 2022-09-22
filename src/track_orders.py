@@ -10,13 +10,32 @@ class TrackOrders:
         return self._orders.append([customer, order, day])
 
     def get_most_ordered_dish_per_customer(self, customer):
-        pass
+        ordered_dish_per_customer = dict()
+
+        for client, dish, _ in self._orders:
+            if client == customer:
+                ordered_dish_per_customer[dish] = dish
+        return max(ordered_dish_per_customer)
 
     def get_never_ordered_per_customer(self, customer):
-        pass
+        never_ordered_per_customer = set()
+        customers = set()
+
+        for client, dish, _ in self._orders:
+            never_ordered_per_customer.add(dish)
+            if client == customer:
+                customers.add(dish)
+        return never_ordered_per_customer.difference(customers)
 
     def get_days_never_visited_per_customer(self, customer):
-        pass
+        never_days_visited_per_customer = set()
+        customers = set()
+
+        for client, _, day in self._orders:
+            never_days_visited_per_customer.add(day)
+            if client == customer:
+                customers.add(day)
+        return never_days_visited_per_customer.difference(customers)
 
     def get_busiest_day(self):
         pass
