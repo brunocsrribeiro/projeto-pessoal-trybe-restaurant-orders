@@ -42,7 +42,17 @@ class TrackOrders:
         return never_days_visited_per_customer.difference(customers)
 
     def get_busiest_day(self):
-        pass
+        busiest_day = dict()
+
+        for _, _, day in self._orders:
+            busiest_day[day] = day
+            most_ordered = Counter(busiest_day)
+        return most_ordered.most_common()[-1][-1]
 
     def get_least_busy_day(self):
-        pass
+        least_busy_day = dict()
+
+        for _, _, day in self._orders:
+            least_busy_day[day] = day
+            most_ordered = Counter(least_busy_day)
+        return most_ordered.most_common()[1][1]
